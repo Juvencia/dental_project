@@ -1,4 +1,4 @@
-torch==2.5.1
+torch==2.6.0
 torchvision==0.21.0
 timm==0.9.12
 streamlit==1.29.0
