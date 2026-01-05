@@ -3,7 +3,7 @@ import torch
 from PIL import Image
 import torchvision.transforms as transforms
 
-from model.hybrid_model import ParallelHybridCNNViT
+from hybrid_model import ParallelHybridCNNViT
 
 # =========================
 # CONFIG
