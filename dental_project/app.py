@@ -2,6 +2,7 @@ import streamlit as st
 import torch
 from PIL import Image
 import torchvision.transforms as transforms
+from huggingface_hub import hf_hub_download
 
 from hybrid_model import ParallelHybridCNNViT
 
@@ -25,15 +26,20 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # =========================
 @st.cache_resource
 def load_model():
-    model = ParallelHybridCNNViT(NUM_CLASSES)
-    model.load_state_dict(
-        torch.load("best_hybrid_model.pth", map_location=DEVICE)
+    model_path = hf_hub_download(
+        repo_id="juvencia/oral_hybrid_model",
+        filename="best_hybrid_model.pth"
     )
-    model.to(DEVICE)
+
+    model = ParallelHybridCNNViT(num_classes=6)
+    model.load_state_dict(
+        torch.load(model_path, map_location=torch.device("cpu"))
+    )
     model.eval()
     return model
 
 model = load_model()
+
 
 # =========================
 # UI
