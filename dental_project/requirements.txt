@@ -1,7 +1,7 @@
-streamlit
-torch
-torchvision
-timm
+torch==2.1.0
+torchvision==0.16.0
+timm==0.9.12
+streamlit==1.29.0
+huggingface_hub==0.20.3
 pillow
 numpy
-scikit-learn
