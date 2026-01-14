@@ -5,6 +5,11 @@ import torchvision.transforms as transforms
 from huggingface_hub import hf_hub_download
 
 from hybrid_model import ParallelHybridCNNViT
+st.set_page_config(
+    page_title="Diagnosis Penyakit Mulut",
+    page_icon="🦷",
+    layout="centered"
+)
 
 # =========================
 # CONFIG
@@ -73,11 +78,6 @@ model = load_model()
 # =========================
 # UI
 # =========================
-st.set_page_config(
-    page_title="Diagnosis Penyakit Mulut",
-    page_icon="🦷",
-    layout="centered"
-)
 
 st.title("🦷 Diagnosis Penyakit Mulut Berbasis Citra")
 st.write(
